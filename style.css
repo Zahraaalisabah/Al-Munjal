@@ -20,6 +20,7 @@ body {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 ul {
@@ -28,6 +29,7 @@ ul {
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -130,6 +132,7 @@ header {
 
 .header-icons {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 
@@ -167,6 +170,14 @@ header {
     justify-content: center;
 }
 
+/* زر القائمة للموبايل */
+.mobile-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
 /* =======================================
    4. HERO SECTION
 ======================================= */
@@ -179,8 +190,8 @@ header {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    border-bottom-left-radius: 180px;
-    border-bottom-right-radius: 180px;
+    border-bottom-left-radius: 120px;
+    border-bottom-right-radius: 120px;
 }
 
 .hero::before {
@@ -211,7 +222,7 @@ header {
 }
 
 .hero-text h1 {
-    font-size: 78px;
+    font-size: 68px;
     line-height: 1.2;
     color: white;
     font-weight: 900;
@@ -224,8 +235,8 @@ header {
 }
 
 .hero-text p {
-    font-size: 22px;
-    line-height: 2;
+    font-size: 20px;
+    line-height: 1.8;
     color: #ddd;
     margin-bottom: 40px;
 }
@@ -236,34 +247,47 @@ header {
     margin-bottom: 50px;
 }
 
-.btn-primary {
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 16px 40px;
+    border-radius: 12px;
+    font-weight: 800;
+    transition: .3s ease;
+    text-align: center;
+}
+
+.btn-primary {
     background: #f4b63f;
     color: #081a3a;
-    font-weight: 800;
-    border-radius: 12px;
-    transition: .3s;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    transform: translateY(-3px);
 }
 
 .btn-secondary {
-    padding: 16px 40px;
     border: 2px solid white;
     color: white;
-    font-weight: 700;
-    border-radius: 12px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-3px);
 }
 
 .hero-features {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 15px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .feature {
     background: rgba(255,255,255,.08);
-    padding: 18px 22px;
+    padding: 15px 20px;
     border-radius: 15px;
     color: white;
     display: flex;
@@ -281,73 +305,69 @@ header {
     text-align: center;
 }
 
-.hero-image img {
-    max-width: 100%;
-}
-
 /* =======================================
    5. CATEGORIES
 ======================================= */
 .categories {
-    padding: 40px 0 80px;
+    padding: 60px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .section-title h2 {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 900;
     color: #081a3a;
     margin-bottom: 10px;
 }
 
 .section-title p {
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
 }
 
 .categories-grid {
     background: #fff;
-    border-radius: 35px;
+    border-radius: 25px;
     padding: 25px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+    gap: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.06);
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 
 .cat-card {
-    min-width: 170px;
+    min-width: 160px;
+    flex: 1;
     background: #fafafa;
     border: 1px solid #eee;
-    border-radius: 25px;
-    padding: 25px 15px;
+    border-radius: 20px;
+    padding: 20px 15px;
     text-align: center;
     transition: .35s;
     cursor: pointer;
+    scroll-snap-align: start;
 }
 
 .cat-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,.08);
     border-color: #f4b63f;
 }
 
 .cat-card img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    margin: auto;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
 }
 
 .cat-card h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: #081a3a;
     margin-bottom: 5px;
 }
@@ -369,7 +389,7 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 5px 20px rgba(0,0,0,.04);
-    margin: 50px auto;
+    margin: 40px auto;
 }
 
 .feature-item {
@@ -381,48 +401,45 @@ header {
 }
 
 .feature-item i {
-    font-size: 32px;
+    font-size: 30px;
     color: #0b1f4f;
 }
 
 .feature-item h4 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #0b1f4f;
     margin-bottom: 4px;
 }
 
 .feature-item p {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
 }
 
 .divider {
     width: 1px;
-    height: 50px;
+    height: 45px;
     background: #e5e7eb;
 }
 
 /* =======================================
-   /* =======================================
-7. PRODUCTS SECTION (MOCKUP STYLE)
+   7. PRODUCTS SECTION
 ======================================= */
 .products {
     padding: 60px 0;
     background: #f8fafc;
 }
 
-/* تنسيق الهيدر بالكامل */
 .products-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 35px;
-    border-bottom: 2px solid #eef2f6; /* خط سفلي ناعم يحدد القسم */
+    border-bottom: 2px solid #eef2f6;
     padding-bottom: 15px;
 }
 
-/* تنسيق عنوان "الأكثر مبيعاً" */
 .products-header .main-title {
     font-size: 26px;
     font-weight: 800;
@@ -433,7 +450,6 @@ header {
     position: relative;
 }
 
-/* حركة ذكية: خط ملون تحت كلمة الأكثر مبيعاً */
 .products-header .main-title::after {
     content: '';
     position: absolute;
@@ -441,39 +457,29 @@ header {
     right: 0;
     width: 60px;
     height: 3px;
-    background: #25D366; /* متناسق مع لون الواتساب */
+    background: #25D366;
     border-radius: 2px;
 }
 
-.products-header .arrow-icon {
-    font-size: 20px;
-    color: #25D366; /* تحويل لون الأيقونة ليعطي لمسة حيوية */
-}
-
-/* تحويل "عرض جميع المنتجات" إلى زر أنيق ومرتب */
 .products-header .view-all {
     color: #0b1a30;
     font-weight: 700;
     font-size: 14px;
-    text-decoration: none;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: 2px solid #0b1a30;
-    border-radius: 30px; /* زوايا دائرية بالكامل */
+    border-radius: 30px;
     transition: all 0.3s ease;
 }
 
 .products-header .view-all:hover {
     background: #0b1a30;
     color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(11, 26, 48, 0.15);
 }
 
 .productSwiper {
-    padding: 10px 0 40px 0 !important;
+    padding: 10px 5px 40px 5px !important;
 }
 
-/* تنسيق الكارت */
 .product-card {
     background: #fff;
     border: 1px solid #eef2f6;
@@ -516,11 +522,7 @@ header {
     line-height: 1.5;
 }
 
-/* الفوتر وزر الواتساب الجديد */
 .card-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     margin-top: 10px;
 }
@@ -532,89 +534,59 @@ header {
     gap: 8px;
     background-color: #25D366;
     color: #fff;
-    text-decoration: none;
     padding: 12px 15px;
     border-radius: 10px;
     font-weight: 700;
     font-size: 14px;
     width: 100%;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-sizing: border-box;
-    border: none;
 }
 
 .whatsapp-btn:hover {
     background-color: #1ebd57;
-    color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
-.whatsapp-btn i {
-    font-size: 18px;
-}
-
-/* أسهم السوايبير */
-.productSwiper .swiper-button-next,
-.productSwiper .swiper-button-prev {
-    color: #0b1a30;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.productSwiper .swiper-button-next:after,
-.productSwiper .swiper-button-prev:after {
-    font-size: 16px;
-    font-weight: bold;
-}
-
 /* =======================================
-   5. PROMO BANNERS (تنسيق البانرات الترويجية)
+   8. PROMO BANNERS
 ======================================= */
 .promo-banners {
     padding: 60px 0;
     background: #f8fafc;
 }
 
-/* إذا كان القسم يحتوي على 3 بانرات */
 .promo-banners .container.grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
-/* إذا كان القسم يحتوي على 4 بانرات */
 .promo-banners .container.grid-4 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .promo-banners .banner {
     background: linear-gradient(135deg, #092040, #051226);
     border-radius: 20px;
-    padding: 30px 25px;
+    padding: 25px;
     min-height: 220px;
     display: flex;
     justify-content: space-between;
-    /* تغيير المحاذاة لتتمدد العناصر عمودياً وتأخذ الصورة الحجم المتاح */
-    align-items: center; 
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .promo-banners .banner:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(7, 21, 47, 0.15);
+    transform: translateY(-5px);
 }
 
-/* تنسيق النصوص داخل البانر */
 .banner-text {
     flex: 1;
     display: flex;
@@ -625,52 +597,34 @@ header {
 
 .promo-banners .banner h2 {
     color: #fff;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     margin-bottom: 8px;
-    line-height: 1.3;
 }
 
 .promo-banners .banner p {
     color: #adb5bd;
-    font-size: 14px;
-    margin-bottom: 25px;
-    line-height: 1.4;
+    font-size: 13px;
+    margin-bottom: 20px;
 }
 
-/* --- التعديل الجديد الخاص بالصورة --- */
-.promo-banners .banner img, 
-.promo-banners .banner-image {
-    max-width: 12000px;      /* التحكم في أقصى عرض للصورة لتظل متناسقة */
-    height: auto;          /* الحفاظ على أبعاد الصورة بدون تشويه */
-    object-fit: contain;   /* جعل الصورة واضحة بالكامل دون قص أجزاء منها */
-    flex-shrink: 0;        /* منع النص من ضغط الصورة أو تصغيرها */
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); /* إضافة ظل خفيف لبروز الصورة */
-}
-/* زر تسوق الآن / استكشف */
-.btn-explore, 
-.banner a {
+.btn-explore, .banner a {
     display: inline-block;
-    padding: 10px 28px;
+    padding: 10px 22px;
     background: #f4b63f;
     color: #0b1a30;
     font-weight: 700;
     border-radius: 8px;
-    font-size: 14px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 13px;
+    transition: 0.3s ease;
 }
 
-.btn-explore:hover, 
-.banner a:hover {
-    background: #fff;
-    transform: scale(1.03);
-}
-
-/* تنسيق صور المنتجات داخل البانر */
 .promo-banners .banner img {
-    width: 130px;
-    height: 130px;
+    width: 110px;
+    height: 110px;
+    max-width: 100%;
     object-fit: contain;
+    flex-shrink: 0;
     filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
     transition: transform 0.3s ease;
 }
@@ -680,38 +634,7 @@ header {
 }
 
 /* =======================================
-   تجاوب القسم مع الشاشات الصغيرة (Responsive)
-======================================= */
-@media(max-width: 1200px) {
-    .promo-banners .container.grid-4 {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-@media(max-width: 992px) {
-    .promo-banners .container.grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media(max-width: 768px) {
-    .promo-banners .container.grid-3,
-    .promo-banners .container.grid-4 {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .promo-banners .banner {
-        padding: 25px;
-        min-height: auto;
-    }
-    
-    .promo-banners .banner h2 {
-        font-size: 20px;
-    }
-}
-
-/* =======================================
-   9. WHY US SECTION (REELS STYLE)
+   9. WHY US SECTION
 ======================================= */
 .why-us {
     background: #f8fafc;
@@ -720,48 +643,43 @@ header {
 
 .why-wrapper {
     display: grid;
-    /* تم جعل المساحة متساوية 50% للفيديو و 50% للكلام ليعطي مساحة أكبر للعرض */
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
 }
 
-/* التعديل الجديد لعرض الفيديو */
 .why-video {
     position: relative;
     overflow: hidden;
     border-radius: 24px;
     width: 100%;
-    max-width: 420px; /* تم زيادة العرض من 340px إلى 420px ليصبح أعرض وأوضح */
-    height: 520px;    /* تناسق الارتفاع مع العرض الجديد */
+    max-width: 420px;
+    height: 520px;
     margin: 0 auto;
     box-shadow: 0 20px 40px rgba(11, 31, 79, 0.15);
     border: 4px solid #fff;
 }
 
-/* لضمان تعبئة الفيديو للمساحة الطولية بالكامل وبدون تشويه */
 .why-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* زر تشغيل ناعم ومناسب للريلز */
 .play-btn {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(4px); /* تأثير زجاجي خلف الزر */
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,.15);
     transition: all 0.3s ease;
 }
 
@@ -770,14 +688,12 @@ header {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-.play-btn:hover i {
-    color: #fff;
-}
+.play-btn:hover i { color: #fff; }
 
 .play-btn i {
-    font-size: 24px;
+    font-size: 22px;
     color: #0b1f4f;
-    margin-right: -4px; /* تعديل بسيط لوزن أيقونة التشغيل البصرية في المركز */
+    margin-right: -3px;
 }
 
 .why-content h2 {
@@ -785,14 +701,13 @@ header {
     color: #081a3a;
     margin-bottom: 20px;
     font-weight: 800;
-    line-height: 1.4;
 }
 
 .why-content p {
     color: #6c757d;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.8;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .why-features {
@@ -800,7 +715,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     border-top: 1px solid #e2e8f0;
-    padding-top: 30px;
+    padding-top: 25px;
 }
 
 .why-item {
@@ -811,14 +726,14 @@ header {
 }
 
 .why-icon-box {
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 50px;
     border: 1px dashed #0b2545;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     background: #fff;
     transition: all 0.3s ease;
 }
@@ -828,106 +743,57 @@ header {
     border-style: solid;
 }
 
-.why-item:hover .why-icon-box i {
-    color: #fff;
-}
+.why-item:hover .why-icon-box i { color: #fff; }
 
 .why-item i {
     font-size: 18px;
     color: #0b2545;
-    transition: all 0.3s ease;
 }
 
 .why-item h4 {
     font-size: 14px;
     font-weight: 700;
     color: #0b1a30;
-    margin-bottom: 4px;
 }
 
 .why-item span {
-    font-size: 12px;
+    font-size: 11px;
     color: #6c757d;
 }
-
-/* متجاوب مع الشاشات الصغيرة للهواتف */
-@media (max-width: 768px) {
-    .why-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .why-video {
-        height: 480px; /* تقليل الارتفاع قليلاً على الموبايل لتوفير مساحة */
-    }
-    .why-features {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-}
-
 
 /* =======================================
    10. MAP SECTION
 ======================================= */
 .location-map {
     padding: 60px 0;
-    background: #fff; /* خلفية بيضاء ليفصل عن الأقسام الرمادية */
+    background: #fff;
 }
 
-/* تنسيق رأس قسم الخريطة */
 .map-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .map-header .main-title {
     font-size: 28px;
     font-weight: 800;
     color: #0b1a30;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 10px;
+    gap: 10px;
 }
 
-.map-header .main-title i {
-    color: #25D366; /* لون الأيقونة متناسق مع هوية الموقع الحيوية */
-}
-
-.map-header .map-subtitle {
-    color: #6c757d;
-    font-size: 15px;
-}
-
-/* حاوية الخريطة لتصبح مرنة وحداثية */
 .map-wrapper {
     width: 100%;
-    height: 450px; /* ارتفاع مناسب جداً لرؤية واضحة */
-    border-radius: 24px; /* حواف دائرية فخمة مثل الفيديو والكروت */
+    height: 420px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(11, 31, 79, 0.08); /* ظل ناعم */
-    border: 4px solid #fff; /* إطار أبيض جمالي */
+    box-shadow: 0 15px 35px rgba(11, 31, 79, 0.08);
+    border: 4px solid #fff;
 }
 
-/* جعل الـ iframe يملأ الحاوية بالكامل ويتجاوب مع الموبايل */
 .map-wrapper iframe {
     width: 100%;
     height: 100%;
     border: none;
-}
-
-/* متجاوب مع الهواتف الذكية */
-@media (max-width: 768px) {
-    .location-map {
-        padding: 40px 0;
-    }
-    .map-header .main-title {
-        font-size: 24px;
-    }
-    .map-wrapper {
-        height: 320px; /* تقليل الارتفاع على الموبايل لسهولة التصفح */
-    }
 }
 
 /* =======================================
@@ -942,7 +808,7 @@ header {
 .footer-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr 1fr 1.5fr;
-    gap: 40px;
+    gap: 35px;
 }
 
 .footer-about {
@@ -955,50 +821,37 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .logo-img-footer {
-    width: 190px;
+    width: 160px;
     height: auto;
-    object-fit: contain;
-}
-
-.footer-logo h2 {
-    font-size: 26px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.1;
-}
-
-.footer-logo p {
-    font-size: 12px;
-    color: #cbd5e1;
 }
 
 .footer-desc {
     color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 14px;
-    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 13px;
+    margin-bottom: 20px;
 }
 
 .footer-col h3 {
     color: #fff;
-    margin-bottom: 20px;
-    font-size: 18px;
+    margin-bottom: 18px;
+    font-size: 17px;
     font-weight: 700;
 }
 
 .footer-col ul {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .footer-col a {
     color: #cbd5e1;
-    font-size: 14px;
+    font-size: 13px;
     transition: .3s;
 }
 
@@ -1011,23 +864,17 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
-}
-
-.contact-list i {
-    color: #6c757d;
-    width: 20px;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .payment-methods {
     display: flex;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .payment-methods img {
-    height: 24px;
+    height: 22px;
     background: #fff;
     padding: 2px;
     border-radius: 4px;
@@ -1035,12 +882,12 @@ header {
 
 .social-links {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .social-links a {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: rgba(255,255,255,.05);
     display: flex;
@@ -1056,123 +903,173 @@ header {
 }
 
 .footer-bottom {
-    margin-top: 50px;
-    padding-top: 25px;
+    margin-top: 40px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,.08);
     text-align: center;
 }
 
 .footer-bottom p {
     color: #cbd5e1;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /* =======================================
-   12. GLOBAL RESPONSIVE BUTTONS & EFFECTS
+   12. GLOBAL UTILITIES & BUTTONS
 ======================================= */
-.hidden {
-    opacity:0;
-    transform:translateY(50px);
-    transition:.8s;
-}
-
-.show {
-    opacity:1;
-    transform:translateY(0);
-}
-
 .top-btn {
-    position:fixed;
-    left:25px;
-    bottom:25px;
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    background:#f4b63f;
-    color:#081a3a;
-    font-size:20px;
-    cursor:pointer;
-    opacity:0;
-    visibility:hidden;
-    transition:.4s;
-    z-index:999;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #f4b63f;
+    color: #081a3a;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+    z-index: 999;
 }
 
 .top-btn.active {
-    opacity:1;
-    visibility:visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* =======================================
-   13. MEDIA QUERIES (RESPONSIVE)
+   13. MEDIA QUERIES (FULL RESPONSIVE)
 ======================================= */
-@media(max-width:1200px) {
+
+/* الشاشات الكبيرة جداً Ultra Wide */
+@media (min-width: 1400px) {
+    .container { width: 1320px; }
+}
+
+/* اللابتوبات والأجهزة اللوحية العريضة (Desktop / Laptop) */
+@media (max-width: 1200px) {
     .footer-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-}
-
-@media(max-width:992px) {
-    .hero-content {
-        grid-template-columns:1fr;
-        text-align:center;
+    .promo-banners .container.grid-4 {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .hero-text h1 { font-size:55px; }
-    .hero-features { justify-content:center; }
-    .menu { display:none; }
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .why-wrapper { grid-template-columns: 1fr; gap: 40px; }
-    .why-features { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media(max-width:768px) {
-    .hero { min-height:auto; padding:100px 0; }
-    .hero-text h1 { font-size:42px; }
-    .hero-text p { font-size:18px; }
-    .hero-buttons { flex-direction:column; }
-    .top-bar .container { justify-content:center; }
-    .top-right { flex-direction:column; align-items:center; }
-    .features-bar { flex-direction:column; gap:20px; }
-    .divider { width:100%; height:1px; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-logo, .contact-list li, .social-links, .payment-methods { justify-content: center; }
-    .footer-about { align-items: center; }
+/* الأجهزة اللوحية بالطول (Tablets) */
+@media (max-width: 992px) {
+    .menu { display: none; } /* يفضل استخدام JS لإظهار القائمة الجانبية هنا */
+    .mobile-toggle { display: block; }
+    
+    .hero {
+        min-height: auto;
+        padding: 80px 0;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text h1 { font-size: 48px; }
+    .hero-text p { font-size: 18px; }
+    .hero-buttons { justify-content: center; }
+    .hero-features { justify-content: center; }
+
+    .promo-banners .container.grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .why-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-@media(max-width:576px) {
-    .grid-4, .why-features { grid-template-columns: 1fr; }
-    .newsletter-box { flex-direction: column; text-align: center; }
+/* الهواتف الكبيرة (Mobile Landscape & Large Phones) */
+@media (max-width: 768px) {
+    .top-bar { display: none; } /* إخفاء الشريط العلوي في الموبايل لتقليل الزحام */
+    
+    .nav { height: 70px; }
+    .logo-img { width: 120px; }
+    .logo h2 { font-size: 20px; }
+
+    .hero-text h1 { font-size: 34px; }
+    .hero-text p { font-size: 15px; }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+
+    .features-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .feature-item {
+        flex-direction: column;
+    }
+
+    .divider {
+        width: 80%;
+        height: 1px;
+    }
+
+    .promo-banners .container.grid-3,
+    .promo-banners .container.grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .why-video {
+        height: 420px;
+    }
+
+    .map-wrapper {
+        height: 300px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-about, .contact-list li, .social-links, .payment-methods {
+        justify-content: center;
+        align-items: center;
+    }
 }
 
-.card-footer {
-    width: 100%;
-    margin-top: 15px;
-}
+/* الهواتف الصغيرة (Small Mobiles - 480px and below) */
+@media (max-width: 480px) {
+    .container { width: 92%; }
+    .hero-text h1 { font-size: 28px; }
+    
+    .why-features {
+        grid-template-columns: 1fr;
+    }
 
-.whatsapp-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #25D366; /* لون واتساب الرسمي */
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 14px;
-    width: 100%;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-sizing: border-box;
-}
-
-.whatsapp-btn:hover {
-    background-color: #1ebd57; /* لون أغمق عند التمرير */
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.whatsapp-btn i {
-    font-size: 18px;
+    .cat-card {
+        min-width: 130px;
+        padding: 15px 10px;
+    }
+    
+    .cat-card img {
+        width: 60px;
+        height: 60px;
+    }
 }
