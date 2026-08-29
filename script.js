@@ -209,3 +209,74 @@ const productSwiper = new Swiper(".productSwiper", {
     }
   }
 });
+
+// ==========================
+// MOBILE MENU
+// ==========================
+
+const menuToggle = document.getElementById("menuToggle");
+const mainMenu = document.getElementById("mainMenu");
+
+if(menuToggle && mainMenu){
+
+menuToggle.addEventListener("click",()=>{
+
+mainMenu.classList.toggle("active");
+
+const icon = menuToggle.querySelector("i");
+
+if(mainMenu.classList.contains("active")){
+
+icon.classList.remove("fa-bars");
+icon.classList.add("fa-xmark");
+
+}else{
+
+icon.classList.remove("fa-xmark");
+icon.classList.add("fa-bars");
+
+}
+
+});
+
+
+// إغلاق المنيو عند الضغط على أي رابط
+
+mainMenu.querySelectorAll("a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mainMenu.classList.remove("active");
+
+const icon = menuToggle.querySelector("i");
+
+icon.classList.remove("fa-xmark");
+icon.classList.add("fa-bars");
+
+});
+
+});
+
+
+// إغلاق المنيو عند الضغط خارجها
+
+document.addEventListener("click",(e)=>{
+
+if(
+mainMenu.classList.contains("active") &&
+!mainMenu.contains(e.target) &&
+!menuToggle.contains(e.target)
+){
+
+mainMenu.classList.remove("active");
+
+const icon = menuToggle.querySelector("i");
+
+icon.classList.remove("fa-xmark");
+icon.classList.add("fa-bars");
+
+}
+
+});
+
+}
