@@ -1113,9 +1113,7 @@ width:280px;
 }
 
 /* الأجهزة اللوحية بالطول (Tablets) */
-@media (max-width: 992px) {
-    .menu { display: none; } /* يفضل استخدام JS لإظهار القائمة الجانبية هنا */
-    .mobile-toggle { display: block; }
+
     
     .hero {
         min-height: auto;
@@ -1225,4 +1223,191 @@ width:280px;
         width: 60px;
         height: 60px;
     }
+}
+
+/* ==========================
+MOBILE HEADER FIX
+========================== */
+
+@media(max-width:992px){
+
+html,body{
+width:100%;
+max-width:100%;
+overflow-x:hidden;
+}
+
+header{
+width:100%;
+overflow:visible;
+}
+
+.nav{
+width:100%;
+max-width:100%;
+height:70px;
+padding:0 15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+}
+
+/* اللوجو */
+.logo{
+flex-shrink:0;
+margin:0;
+}
+
+.logo-img{
+width:105px;
+}
+
+.logo h2{
+font-size:18px;
+}
+
+.logo p{
+display:none;
+}
+
+/* الأيقونات */
+.header-icons{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:6px;
+margin-right:auto;
+margin-left:8px;
+}
+
+.header-icons a{
+width:40px;
+height:40px;
+font-size:15px;
+}
+
+/* زر المنيو */
+.mobile-toggle{
+display:flex;
+flex-shrink:0;
+width:42px;
+height:42px;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+border-radius:10px;
+color:#fff;
+font-size:20px;
+cursor:pointer;
+z-index:10001;
+}
+
+/* القائمة */
+.menu{
+position:fixed !important;
+top:70px !important;
+right:-300px !important;
+width:280px !important;
+height:calc(100vh - 70px) !important;
+
+display:flex !important;
+flex-direction:column !important;
+align-items:stretch !important;
+
+margin:0 !important;
+padding:20px !important;
+
+background:#07152f !important;
+
+border-left:1px solid rgba(255,255,255,.1);
+
+box-shadow:-15px 0 35px rgba(0,0,0,.4);
+
+overflow-y:auto;
+
+z-index:10000;
+
+transition:right .35s ease !important;
+}
+
+/* عند فتح المنيو */
+.menu.active{
+right:0 !important;
+}
+
+.menu li{
+width:100%;
+margin:0;
+}
+
+.menu a{
+display:flex;
+align-items:center;
+width:100%;
+min-height:50px;
+
+padding:12px 10px;
+
+font-size:16px;
+font-weight:700;
+
+color:#fff;
+
+border-bottom:1px solid rgba(255,255,255,.07);
+
+transition:.3s ease;
+}
+
+.menu a::after{
+display:none !important;
+}
+
+.menu a:hover{
+color:#f4b63f;
+background:rgba(244,182,63,.08);
+padding-right:16px;
+}
+
+}
+
+
+/* ==========================
+SMALL MOBILE
+========================== */
+
+@media(max-width:576px){
+
+.nav{
+height:65px;
+padding:0 12px;
+gap:7px;
+}
+
+.logo-img{
+width:95px;
+}
+
+.header-icons{
+gap:5px;
+margin-left:5px;
+}
+
+.header-icons a{
+width:36px;
+height:36px;
+font-size:14px;
+}
+
+.mobile-toggle{
+width:40px;
+height:40px;
+}
+
+.menu{
+top:65px !important;
+height:calc(100vh - 65px) !important;
+}
+
 }
