@@ -280,3 +280,72 @@ icon.classList.add("fa-bars");
 });
 
 }
+
+// ==========================
+// MOBILE MENU
+// ==========================
+
+const menuToggle = document.getElementById("menuToggle");
+const mainMenu = document.getElementById("mainMenu");
+
+if(menuToggle && mainMenu){
+
+const menuIcon = menuToggle.querySelector("i");
+
+menuToggle.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+mainMenu.classList.toggle("active");
+
+if(mainMenu.classList.contains("active")){
+
+menuIcon.classList.remove("fa-bars");
+menuIcon.classList.add("fa-xmark");
+
+}else{
+
+menuIcon.classList.remove("fa-xmark");
+menuIcon.classList.add("fa-bars");
+
+}
+
+});
+
+
+// إغلاق المنيو عند الضغط على الرابط
+
+mainMenu.querySelectorAll("a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mainMenu.classList.remove("active");
+
+menuIcon.classList.remove("fa-xmark");
+menuIcon.classList.add("fa-bars");
+
+});
+
+});
+
+
+// إغلاق المنيو عند الضغط خارجها
+
+document.addEventListener("click",(e)=>{
+
+if(
+mainMenu.classList.contains("active") &&
+!mainMenu.contains(e.target) &&
+!menuToggle.contains(e.target)
+){
+
+mainMenu.classList.remove("active");
+
+menuIcon.classList.remove("fa-xmark");
+menuIcon.classList.add("fa-bars");
+
+}
+
+});
+
+}
