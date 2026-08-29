@@ -73,218 +73,263 @@ img {
     color: #f4b63f;
 }
 
-/* =======================================
-   3. HEADER & LOGO
-======================================= */
-/* =======================================
-   HEADER & NAVIGATION (UPDATED)
-======================================= */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: rgba(8, 26, 58, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+/* ==========================
+HEADER
+========================== */
+
+header{
+position:sticky;
+top:0;
+z-index:9999;
+background:rgba(8,26,58,.97);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.nav {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+.nav{
+height:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
 }
 
-/* اللوجو */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    flex-shrink: 0;
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+text-decoration:none;
+flex-shrink:0;
 }
 
-.logo-img {
-    width: 130px;
-    height: auto;
-    object-fit: contain;
+.logo-img{
+width:130px;
+height:auto;
+object-fit:contain;
 }
 
-.logo h2 {
-    font-size: 20px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.2;
+.logo h2{
+font-size:20px;
+font-weight:800;
+color:#fff;
+line-height:1.2;
 }
 
-.logo p {
-    font-size: 11px;
-    color: #a0aec0;
+.logo p{
+font-size:11px;
+color:#a0aec0;
 }
 
-/* القائمة الرئيسية للابتوب والشاشات الكبيرة */
-.menu {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+/* ==========================
+MENU
+========================== */
+
+.menu{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:28px;
+margin-right:auto;
+margin-left:auto;
 }
 
-.menu a {
-    color: #e2e8f0;
-    font-size: 15px;
-    font-weight: 700;
-    transition: color 0.3s ease;
-    position: relative;
-    padding: 5px 0;
+.menu a{
+color:#e2e8f0;
+font-size:15px;
+font-weight:700;
+transition:.3s ease;
+position:relative;
+padding:8px 0;
+white-space:nowrap;
 }
 
 .menu a:hover,
-.menu a.active {
-    color: #f4b63f;
+.menu a.active{
+color:#f4b63f;
 }
 
-.menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background: #f4b63f;
-    transition: width 0.3s ease;
+.menu a::after{
+content:"";
+position:absolute;
+bottom:0;
+right:0;
+width:0;
+height:2px;
+background:#f4b63f;
+transition:.3s ease;
 }
 
 .menu a:hover::after,
-.menu a.active::after {
-    width: 100%;
+.menu a.active::after{
+width:100%;
 }
 
-/* أيقونات السلة والحساب */
-.header-icons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
+/* ==========================
+SOCIAL ICONS
+========================== */
+
+.header-icons{
+display:flex;
+align-items:center;
+gap:10px;
+flex-shrink:0;
 }
 
-.header-icons a {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    position: relative;
-    transition: all 0.3s ease;
+.header-icons a{
+width:40px;
+height:40px;
+border-radius:50%;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+transition:.3s ease;
 }
 
-.header-icons a:hover {
-    background: #f4b63f;
-    color: #081a3a;
-    transform: translateY(-2px);
+.header-icons a:hover{
+background:#f4b63f;
+color:#081a3a;
+transform:translateY(-3px);
 }
 
-.header-icons span {
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #f4b63f;
-    color: #081a3a;
-    font-size: 11px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #081a3a;
+/* ==========================
+MOBILE BUTTON
+========================== */
+
+.mobile-toggle{
+display:none;
+width:44px;
+height:44px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+border-radius:10px;
+color:#fff;
+font-size:20px;
+cursor:pointer;
+align-items:center;
+justify-content:center;
+transition:.3s ease;
 }
 
-/* زر الهامبرغر للموبايل */
-.mobile-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
+.mobile-toggle:hover{
+background:#f4b63f;
+color:#081a3a;
 }
 
-.mobile-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+/* ==========================
+TABLET / MOBILE
+========================== */
+
+@media(max-width:992px){
+
+.nav{
+height:70px;
 }
 
-/* =======================================
-   RESPONSIVE HEADER MEDIA QUERIES
-======================================= */
-@media (max-width: 992px) {
-    .nav {
-        height: 70px;
-    }
-
-    .logo-img {
-        width: 110px;
-    }
-
-    .logo h2 {
-        font-size: 18px;
-    }
-
-    .mobile-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* تحويل القائمة إلى قائمة منسدلة/جانبية في الموبايل */
-    .menu {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 280px;
-        height: calc(100vh - 70px);
-        background: #07152f;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 30px 25px;
-        gap: 20px;
-        border-left: 1px solid rgba(255, 255, 255, 0.08);
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 25px rgba(0, 0, 0, 0.3);
-    }
-
-    /* إضافة كلاس active عبر JS لفتح القائمة */
-    .menu.active {
-        right: 0;
-    }
-
-    .menu a {
-        width: 100%;
-        font-size: 16px;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
+.logo-img{
+width:110px;
 }
 
-@media (max-width: 576px) {
-    .header-icons a {
-        width: 38px;
-        height: 38px;
-        font-size: 14px;
-    }
+.menu{
+position:fixed;
+top:70px;
+right:-100%;
+width:290px;
+height:calc(100vh - 70px);
+background:#07152f;
+display:flex;
+flex-direction:column;
+align-items:stretch;
+justify-content:flex-start;
+padding:25px 22px;
+gap:5px;
+margin:0;
+border-left:1px solid rgba(255,255,255,.08);
+box-shadow:-15px 0 35px rgba(0,0,0,.3);
+transition:right .4s cubic-bezier(.4,0,.2,1);
+overflow-y:auto;
+}
 
-    .logo p {
-        display: none; /* إخفاء الوصف المصغر على الهواتف الصغيرة جداً */
-    }
+.menu.active{
+right:0;
+}
+
+.menu li{
+width:100%;
+}
+
+.menu a{
+display:flex;
+align-items:center;
+width:100%;
+padding:14px 8px;
+font-size:16px;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.menu a::after{
+display:none;
+}
+
+.menu a:hover{
+background:rgba(244,182,63,.08);
+padding-right:15px;
+}
+
+.mobile-toggle{
+display:flex;
+}
+
+}
+
+/* ==========================
+SMALL MOBILE
+========================== */
+
+@media(max-width:576px){
+
+.nav{
+height:65px;
+gap:10px;
+}
+
+.logo-img{
+width:95px;
+}
+
+.logo h2{
+font-size:17px;
+}
+
+.logo p{
+display:none;
+}
+
+.header-icons{
+gap:5px;
+}
+
+.header-icons a{
+width:34px;
+height:34px;
+font-size:13px;
+}
+
+.mobile-toggle{
+width:38px;
+height:38px;
+font-size:18px;
+}
+
+.menu{
+top:65px;
+height:calc(100vh - 65px);
+width:280px;
+}
+
 }
 /* =======================================
    4. HERO SECTION
